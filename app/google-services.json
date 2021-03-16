@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "229082906671",
+    "project_id": "fishy-codex",
+    "storage_bucket": "fishy-codex.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:229082906671:android:eb146bf857095a2ed746da",
+        "android_client_info": {
+          "package_name": "com.example.fishycodex"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "229082906671-r08m17s24t7vpp67j61ks7lh3e9oj91v.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAOdYg3Pt0ADkUczoCF_5DLNCopwPSZWzs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "229082906671-r08m17s24t7vpp67j61ks7lh3e9oj91v.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
