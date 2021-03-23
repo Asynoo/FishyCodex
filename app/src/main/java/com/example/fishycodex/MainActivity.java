@@ -1,6 +1,7 @@
 package com.example.fishycodex;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -8,6 +9,8 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -21,16 +24,16 @@ import java.util.List;
 
 import static android.content.ContentValues.TAG;
 
-public class MainActivity extends Activity {
+public class MainActivity extends AppCompatActivity {
 
-    FirebaseDatabase database = FirebaseDatabase.getInstance("https://fishy-codex-default-rtdb.europe-west1.firebasedatabase.app/");
-    ListView listview;
+    //FirebaseDatabase database = FirebaseDatabase.getInstance("https://fishy-codex-default-rtdb.europe-west1.firebasedatabase.app/");
+    //ListView listview;
     Button Addbutton;
-    EditText GetValue;
-    String[] ListElements = new String[] {
+    //EditText GetValue;
+    //String[] ListElements = new String[] {
 
-    };
-
+    //};
+/*
     public void database(){
         DatabaseReference speciesFish = database.getReference("Species");
         speciesFish.setValue("Rainbow Trout");
@@ -59,12 +62,30 @@ public class MainActivity extends Activity {
             }
         });
     }
+    */
+
+    public void init(){
+        Addbutton = (Button) findViewById(R.id.openNewFishView);
+        Addbutton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent loadAddPage = new Intent(MainActivity.this,AddMenuActivity.class);
+                startActivity(loadAddPage);
+            }
+        });
+
+    }
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        init();
+    }
+}
 
+/*
         listview = (ListView) findViewById(R.id.listView1);
         Addbutton = (Button) findViewById(R.id.button1);
         GetValue = (EditText) findViewById(R.id.editText1);
@@ -83,13 +104,13 @@ public class MainActivity extends Activity {
 
             @Override
             public void onClick(View v) {
-                DatabaseReference speciesFish = database.getReference("Species");
-                ListElementsArrayList.add(GetValue.getText().toString());
-                speciesFish.setValue(GetValue.getText().toString());
-                adapter.notifyDataSetChanged();
+                //DatabaseReference speciesFish = database.getReference("Species");
+                //ListElementsArrayList.add(GetValue.getText().toString());
+                //speciesFish.setValue(GetValue.getText().toString());
+                //adapter.notifyDataSetChanged();
+
+                Intent addPage = new Intent(MainActivity.this,AddMenuActivity.class);
 
             }
         });
-    }
-
-}
+ */
