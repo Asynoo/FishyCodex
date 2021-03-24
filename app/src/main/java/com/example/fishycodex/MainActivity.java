@@ -27,12 +27,12 @@ import static android.content.ContentValues.TAG;
 public class MainActivity extends AppCompatActivity {
 
     //FirebaseDatabase database = FirebaseDatabase.getInstance("https://fishy-codex-default-rtdb.europe-west1.firebasedatabase.app/");
-    //ListView listview;
+    ListView fishView;
     Button Addbutton;
     //EditText GetValue;
-    //String[] ListElements = new String[] {
+    String[] ListElements = new String[] {
 
-    //};
+    };
 /*
     public void database(){
         DatabaseReference speciesFish = database.getReference("Species");
@@ -65,8 +65,18 @@ public class MainActivity extends AppCompatActivity {
     */
 
     public void init(){
+        fishView = (ListView) findViewById(R.id.fishListView);
+
+        final List< String > ListElementsArrayList = new ArrayList < String >
+                (Arrays.asList(ListElements));
+
+
+        final ArrayAdapter < String > adapter = new ArrayAdapter < String >
+                (MainActivity.this, android.R.layout.simple_list_item_1,
+                        ListElementsArrayList);
         Addbutton = (Button) findViewById(R.id.openNewFishView);
         Addbutton.setOnClickListener(new View.OnClickListener() {
+
             @Override
             public void onClick(View v) {
                 Intent loadAddPage = new Intent(MainActivity.this,AddMenuActivity.class);
@@ -108,8 +118,6 @@ public class MainActivity extends AppCompatActivity {
                 //ListElementsArrayList.add(GetValue.getText().toString());
                 //speciesFish.setValue(GetValue.getText().toString());
                 //adapter.notifyDataSetChanged();
-
-                Intent addPage = new Intent(MainActivity.this,AddMenuActivity.class);
 
             }
         });

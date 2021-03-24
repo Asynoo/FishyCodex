@@ -12,11 +12,12 @@
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_marginStart="115dp"
-        android:layout_marginTop="117dp"
+        android:layout_marginTop="60dp"
         android:layout_marginEnd="116dp"
         android:ems="10"
         android:hint="Species"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -26,11 +27,12 @@
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_marginStart="115dp"
-        android:layout_marginTop="68dp"
+        android:layout_marginTop="40dp"
         android:layout_marginEnd="116dp"
         android:ems="10"
         android:hint="Location"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/speciesID" />
 
@@ -40,11 +42,12 @@
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_marginStart="115dp"
-        android:layout_marginTop="68dp"
+        android:layout_marginTop="40dp"
         android:layout_marginEnd="116dp"
         android:ems="10"
         android:hint="Size"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/locationID" />
 
@@ -54,18 +57,20 @@
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_marginStart="115dp"
-        android:layout_marginTop="76dp"
+        android:layout_marginTop="40dp"
         android:layout_marginEnd="116dp"
         android:layout_marginBottom="115dp"
         android:ems="10"
         android:hint="Date"
-        app:layout_constraintBottom_toTopOf="@+id/addCatch"
+        app:layout_constraintBottom_toTopOf="@+id/addCatchID"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/sizeID" />
+        app:layout_constraintTop_toBottomOf="@+id/sizeID"
+        app:layout_constraintVertical_bias="0.0" />
 
     <Button
-        android:id="@+id/addCatch"
+        android:id="@+id/addCatchID"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="146dp"
