@@ -1,37 +1,41 @@
 package com.example.fishycodex;
 
+import androidx.annotation.NonNull;
 import android.app.ListActivity;
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
-import androidx.annotation.NonNull;
+import android.widget.TextView;
+
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
+
 import java.util.ArrayList;
 
-import static android.content.ContentValues.TAG;
-
-public class MainActivity extends ListActivity {
+public class ShowFish extends ListActivity {
 
     FirebaseFirestore database = FirebaseFirestore.getInstance();
-    Button Addbutton;
     ArrayList<String> listItems=new ArrayList<String>();
     ArrayAdapter<String> adapter;
+
+    private Button reloadButton;
+    private TextView yourFishyCodexBanner;
 
     @Override
     public void onCreate(Bundle icicle) {
         super.onCreate(icicle);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_show_fish);
         adapter=new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, listItems);
         setListAdapter(adapter);
-        loadAddMenu();
         readDatabase();
+        loadAddMenu();
+        goBack();
+
     }
 
     public void readDatabase(){
@@ -40,28 +44,34 @@ public class MainActivity extends ListActivity {
             public void onComplete(@NonNull Task<QuerySnapshot> task) {
                 if (task.isSuccessful()) {
                     for (QueryDocumentSnapshot document : task.getResult()) {
-                        //listItems.add(document.getId() + document.getData());
-                        listItems.add(String.valueOf(document.getData()));
-                        Log.d(TAG, document.getId() + document.getData());
+                        listItems.add(String.valueOf(document.getString("Species"))+" "+String.valueOf(document.getString("Location"))+" "+String.valueOf(document.getString("Size"))+" "+String.valueOf(document.getString("Date")));
                     }
-                } else {
-                    Log.w(TAG, "Error getting documents.", task.getException());
                 }
             }
         });
     }
 
     public void loadAddMenu(){
-        Addbutton = (Button) findViewById(R.id.openNewFishView);
-        Addbutton.setOnClickListener(new View.OnClickListener() {
+        reloadButton = (Button) findViewById(R.id.reloadListView);
+        reloadButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent loadAddPage = new Intent(MainActivity.this,AddMenuActivity.class);
-                startActivity(loadAddPage);}});
+                adapter.notifyDataSetChanged();
+                readDatabase();
+            }
+        });
     }
 
-    public void reloadListView(View v){
-        adapter.notifyDataSetChanged();
-        readDatabase();
+    public void goBack(){
+        yourFishyCodexBanner = (TextView) findViewById(R.id.yourFishyCodexBanner);
+        yourFishyCodexBanner.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+                Intent loadAddPage = new Intent(ShowFish.this, Home.class);
+                startActivity(loadAddPage);
+            }
+        });
     }
+
 }

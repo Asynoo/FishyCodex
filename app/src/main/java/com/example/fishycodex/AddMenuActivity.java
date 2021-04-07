@@ -1,12 +1,16 @@
 package com.example.fishycodex;
 
-import androidx.appcompat.app.AppCompatActivity;
-import com.google.firebase.firestore.FirebaseFirestore;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
+
+import androidx.appcompat.app.AppCompatActivity;
+
+import com.google.firebase.firestore.FirebaseFirestore;
+
 import java.util.HashMap;
 import java.util.Map;
 
@@ -15,12 +19,26 @@ public class AddMenuActivity extends AppCompatActivity {
 
     FirebaseFirestore database = FirebaseFirestore.getInstance();
     Button AddButton;
+    private TextView addCatchBanner;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.add_menu);
         addNewCatch();
+        goBack();
+    }
+
+    public void goBack(){
+        addCatchBanner = (TextView) findViewById(R.id.addCatchBanner);
+        addCatchBanner.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+                Intent loadAddPage = new Intent(AddMenuActivity.this, Home.class);
+                startActivity(loadAddPage);
+            }
+        });
     }
 
     public void addNewCatch() {
@@ -30,11 +48,12 @@ public class AddMenuActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 fishDataWrite();
-                Intent loadAddPage = new Intent(AddMenuActivity.this, MainActivity.class);
+                Intent loadAddPage = new Intent(AddMenuActivity.this, Home.class);
                 startActivity(loadAddPage);
             }
         });
     }
+
 
     public void fishDataWrite() {
         Map<String, Object> Fish = new HashMap<>();
