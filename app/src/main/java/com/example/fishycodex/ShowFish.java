@@ -44,7 +44,7 @@ public class ShowFish extends ListActivity {
             public void onComplete(@NonNull Task<QuerySnapshot> task) {
                 if (task.isSuccessful()) {
                     for (QueryDocumentSnapshot document : task.getResult()) {
-                        listItems.add(String.valueOf(document.getString("Species"))+" "+String.valueOf(document.getString("Location"))+" "+String.valueOf(document.getString("Size"))+" "+String.valueOf(document.getString("Date")));
+                        listItems.add(String.valueOf("\n"+"Species: "+document.getString("Species"))+"\n"+String.valueOf("Location: "+document.getString("Location"))+"\n"+String.valueOf("Size: "+document.getString("Size"))+"\n"+String.valueOf("Date: "+document.getString("Date")+"\n"));
                     }
                 }
             }
