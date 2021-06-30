@@ -7,9 +7,12 @@ import android.os.Bundle;
 import android.text.InputType;
 import android.util.Log;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
+import android.widget.Spinner;
 import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -57,6 +60,9 @@ public class AddMenuActivity extends AppCompatActivity {
         addNewCatch();
         goBack();
         getUser();
+        setupSpeciesSpinner();
+        setupLocationsSpinner();
+        setupSizeSpinner();
     }
 
     public void goBack(){
@@ -95,20 +101,53 @@ public class AddMenuActivity extends AppCompatActivity {
 
     }
 
+    public void setupSpeciesSpinner(){
+        Spinner spinner = (Spinner) findViewById(R.id.speciesID);
+        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,
+                R.array.species_array, android.R.layout.simple_spinner_item);
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spinner.setAdapter(adapter);
+
+    }
+
+    public void setupLocationsSpinner(){
+        Spinner spinner = (Spinner) findViewById(R.id.locationID);
+        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,
+                R.array.locations_array, android.R.layout.simple_spinner_item);
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spinner.setAdapter(adapter);
+
+    }
+
+    public void setupSizeSpinner(){
+        Spinner spinner = (Spinner) findViewById(R.id.sizeID);
+        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,
+                R.array.sizes_array, android.R.layout.simple_spinner_item);
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spinner.setAdapter(adapter);
+    }
+
+    public void onItemSelected(AdapterView<?> parent, View view, int pos, long id) {
+        Spinner spinner = (Spinner) findViewById(R.id.speciesID);
+        spinner.setOnItemSelectedListener((AdapterView.OnItemSelectedListener) this);
+        parent.getItemAtPosition(pos);
+        String text = spinner.getSelectedItem().toString();
+    }
+
     public void fishDataWrite() {
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
             String uid = user.getUid();
         Map<String, Object> Fish = new HashMap<>();
 
 
-        EditText speciesValue = (EditText) findViewById(R.id.speciesID);
-        Fish.put("Species", speciesValue.getText().toString());
+        Spinner speciesValue = (Spinner) findViewById(R.id.speciesID);
+        Fish.put("Species", speciesValue.getSelectedItem().toString());
 
-        EditText locationValue = (EditText) findViewById(R.id.locationID);
-        Fish.put("Location", locationValue.getText().toString());
+        Spinner locationValue = (Spinner) findViewById(R.id.locationID);
+        Fish.put("Location", locationValue.getSelectedItem().toString());
 
-        EditText sizeValue = (EditText) findViewById(R.id.sizeID);
-        Fish.put("Size", sizeValue.getText().toString());
+        Spinner sizeValue = (Spinner) findViewById(R.id.sizeID);
+        Fish.put("Size", sizeValue.getSelectedItem().toString());
 
         EditText dateValue = (EditText) findViewById(R.id.dateID);
         Fish.put("Date", dateValue.getText().toString());

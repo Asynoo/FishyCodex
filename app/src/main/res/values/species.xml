@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="species_array">
+        <item>Rainbow Trout</item>
+        <item>Gold Trout</item>
+        <item>Sea Trout</item>
+        <item>Salmon</item>
+        <item>Sardine</item>
+        <item>Turbot</item>
+        <item>Pike</item>
+        <item>Hornfish</item>
+    </string-array>
+</resources>
