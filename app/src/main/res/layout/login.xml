@@ -6,6 +6,18 @@
     android:layout_height="match_parent"
     tools:context=".Login">
 
+    <ImageView
+        android:id="@+id/imageView6"
+        android:layout_width="1179dp"
+        android:layout_height="1167dp"
+        android:layout_marginStart="240dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/login" />
+
     <TextView
         android:id="@+id/banner"
         android:layout_width="wrap_content"
@@ -14,7 +26,7 @@
         android:layout_marginTop="84dp"
         android:layout_marginEnd="71dp"
         android:text="Fishy Codex"
-        android:textColor="#3F51B5"
+        android:textColor="#CDFFFFFF"
         android:textSize="50sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -25,11 +37,14 @@
         android:layout_width="298dp"
         android:layout_height="60dp"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="71dp"
+        android:layout_marginTop="85dp"
         android:layout_marginEnd="16dp"
+        android:backgroundTint="#CBFFFFFF"
         android:ems="10"
         android:hint="Email"
         android:inputType="textEmailAddress"
+        android:textColor="#CDFFFCFC"
+        android:textColorHint="#CDFFFFFF"
         android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -40,11 +55,14 @@
         android:layout_width="298dp"
         android:layout_height="60dp"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="36dp"
+        android:layout_marginTop="40dp"
         android:layout_marginEnd="16dp"
+        android:backgroundTint="#CDFFFFFF"
         android:ems="10"
         android:hint="Password"
         android:inputType="textPassword"
+        android:textColor="#CBFFFFFF"
+        android:textColorHint="#CBFFFFFF"
         android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -53,23 +71,33 @@
 
     <TextView
         android:id="@+id/forgotPassword"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="56dp"
-        android:layout_marginTop="8dp"
+        android:layout_width="114dp"
+        android:layout_height="19dp"
+        android:layout_marginStart="148dp"
+        android:layout_marginTop="549dp"
+        android:layout_marginEnd="149dp"
+        android:layout_marginBottom="163dp"
         android:text="Forgot Password?"
+        android:textColor="#CBFFFFFF"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/signIn" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/register"
-        android:layout_width="wrap_content"
+        android:layout_width="52dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="56dp"
+        android:layout_marginStart="179dp"
+        android:layout_marginTop="573dp"
+        android:layout_marginEnd="180dp"
+        android:layout_marginBottom="139dp"
         android:text="Register"
+        android:textColor="#CDFFFFFF"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/signIn" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/textView4"
@@ -78,19 +106,25 @@
         android:layout_marginStart="126dp"
         android:layout_marginEnd="126dp"
         android:text="Make your fish come true"
-        android:textColor="#3F51B5"
+        android:textColor="#99FFFFFF"
+        android:textStyle="italic"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/banner" />
 
     <Button
         android:id="@+id/signIn"
+        style="@style/Widget.AppCompat.Button.ButtonBar.AlertDialog"
         android:layout_width="298dp"
         android:layout_height="60dp"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="36dp"
+        android:layout_marginTop="40dp"
         android:layout_marginEnd="17dp"
         android:text="Sign In"
+        android:textColorHighlight="#FFFFFF"
+        android:textColorLink="#FFFFFF"
+        android:textCursorDrawable="@color/black"
+        android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/password" />

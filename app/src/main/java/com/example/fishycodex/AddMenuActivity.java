@@ -46,7 +46,7 @@ public class AddMenuActivity extends AppCompatActivity {
                 int day = cldr.get(Calendar.DAY_OF_MONTH);
                 int month = cldr.get(Calendar.MONTH);
                 int year = cldr.get(Calendar.YEAR);
-                // date picker dialog
+
                 picker = new DatePickerDialog(AddMenuActivity.this,
                         new DatePickerDialog.OnDateSetListener() {
                             @Override
@@ -103,8 +103,7 @@ public class AddMenuActivity extends AppCompatActivity {
 
     public void setupSpeciesSpinner(){
         Spinner spinner = (Spinner) findViewById(R.id.speciesID);
-        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,
-                R.array.species_array, android.R.layout.simple_spinner_item);
+        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this, R.array.species_array, android.R.layout.simple_spinner_item);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinner.setAdapter(adapter);
 
