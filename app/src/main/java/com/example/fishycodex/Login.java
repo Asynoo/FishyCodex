@@ -30,14 +30,14 @@ public class Login extends AppCompatActivity implements View.OnClickListener{
         super.onCreate(savedInstanceState);
         setContentView(R.layout.login);
 
-        register = (TextView) findViewById(R.id.register);
+        register = findViewById(R.id.register);
         register.setOnClickListener(this);
 
-        signIn = (Button) findViewById(R.id.signIn);
+        signIn = findViewById(R.id.signIn);
         signIn.setOnClickListener(this);
 
-        editTextEmail = (EditText) findViewById(R.id.email);
-        editTextPassword = (EditText) findViewById(R.id.password);
+        editTextEmail = findViewById(R.id.email);
+        editTextPassword = findViewById(R.id.password);
 
         mAuth = FirebaseAuth.getInstance();
     }

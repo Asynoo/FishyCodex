@@ -31,16 +31,16 @@ public class Register extends AppCompatActivity implements View.OnClickListener{
 
         mAuth = FirebaseAuth.getInstance();
 
-        banner = (TextView) findViewById(R.id.banner);
+        banner = findViewById(R.id.banner);
         banner.setOnClickListener(this);
 
-        registerUser = (Button) findViewById(R.id.registerUser);
+        registerUser = findViewById(R.id.registerUser);
         registerUser.setOnClickListener(this);
 
-        editTextFullname = (EditText) findViewById(R.id.fullName);
-        editTextAge = (EditText) findViewById(R.id.age);
-        editTextEmail = (EditText) findViewById(R.id.email);
-        editTextPassword = (EditText) findViewById(R.id.password);
+        editTextFullname = findViewById(R.id.fullName);
+        editTextAge = findViewById(R.id.age);
+        editTextEmail = findViewById(R.id.email);
+        editTextPassword = findViewById(R.id.password);
     }
 
     @Override

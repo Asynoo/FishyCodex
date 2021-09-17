@@ -49,7 +49,7 @@ public class ShowFish extends ListActivity {
             public void onComplete(@NonNull Task<QuerySnapshot> task) {
                 if (task.isSuccessful()) {
                     for (QueryDocumentSnapshot document : task.getResult()) {
-                        listItems.add(String.valueOf("\n"+"Species: "+document.getString("Species"))+"\n"+String.valueOf("Location: "+document.getString("Location"))+"\n"+String.valueOf("Size: "+document.getString("Size"))+"\n"+String.valueOf("Date: "+document.getString("Date")+"\n"));
+                        listItems.add("\n" + "Species: " + document.getString("Species") + "\n" + "Location: " + document.getString("Location") + "\n" + "Size: " + document.getString("Size") + "\n" + "Date: " + document.getString("Date") + "\n");
                     }
                 }
             }
@@ -57,7 +57,7 @@ public class ShowFish extends ListActivity {
     }
 
     public void loadAddMenu(){
-        reloadButton = (Button) findViewById(R.id.reloadListView);
+        reloadButton = findViewById(R.id.reloadListView);
         reloadButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -68,7 +68,7 @@ public class ShowFish extends ListActivity {
     }
 
     public void goBack(){
-        yourFishyCodexBanner = (TextView) findViewById(R.id.yourFishyCodexBanner);
+        yourFishyCodexBanner = findViewById(R.id.yourFishyCodexBanner);
         yourFishyCodexBanner.setOnClickListener(new View.OnClickListener() {
 
             @Override
