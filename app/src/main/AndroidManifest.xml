@@ -9,11 +9,11 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.FishyCodex">
-        <activity android:name=".Home"></activity>
+        <activity android:name=".Login"></activity>
         <activity android:name=".ShowFish" />
         <activity android:name=".Register" />
         <activity android:name=".AddMenuActivity" />
-        <activity android:name=".Login">
+        <activity android:name=".Home">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
