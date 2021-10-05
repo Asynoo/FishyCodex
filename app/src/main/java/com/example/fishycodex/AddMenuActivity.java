@@ -3,6 +3,7 @@ package com.example.fishycodex;
 import android.annotation.SuppressLint;
 import android.app.DatePickerDialog;
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
 import android.text.InputType;
 import android.util.Log;
@@ -83,10 +84,10 @@ public class AddMenuActivity extends AppCompatActivity {
 
     public void setupSpeciesSpinner(){
         Spinner spinner = findViewById(R.id.speciesID);
-        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this, R.array.species_array, android.R.layout.simple_spinner_item);
+        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,
+                R.array.species_array, android.R.layout.simple_spinner_item);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinner.setAdapter(adapter);
-
     }
 
     public void setupLocationsSpinner(){

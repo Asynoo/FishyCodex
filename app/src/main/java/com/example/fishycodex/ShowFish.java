@@ -39,6 +39,7 @@ public class ShowFish extends ListActivity {
         assert uid != null;
         database.collection(uid).get().addOnCompleteListener(task -> {
             if (task.isSuccessful()) {
+                listItems.clear();
                 for (QueryDocumentSnapshot document : Objects.requireNonNull(task.getResult())) {
                     listItems.add("\n" + "Species: " + document.getString("Species") + "\n" + "Location: " + document.getString("Location") + "\n" + "Size: " + document.getString("Size") + "\n" + "Date: " + document.getString("Date") + "\n");
                 }

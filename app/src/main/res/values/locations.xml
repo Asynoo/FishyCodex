@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string-array name="locations_array">
-        <item> </item>
+        <item>Location...</item>
         <item>Fiskesøen ved Hebo</item>
         <item>Henne Put and Take</item>
         <item>Bækhuse Fiskesø</item>
